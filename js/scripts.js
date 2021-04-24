@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function downloadData(buttonId,dest){
     var button = document.getElementById(buttonId);
     button.addEventListener('click',function(){
-        fetch("http://localhost/projekt/data/"+dest+".txt")
+        fetch("https://github.com/bestiasia/FlyingPage/tree/main/data/"+dest+".txt")
         .then(response => {return response.text();})
         .then(data => {document.getElementById("site").innerHTML = data; })
     },false);
