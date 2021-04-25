@@ -6,7 +6,7 @@ document.addEventListener("DOMContentLoaded", function() {
 function downloadData(buttonId,dest){
     var button = document.getElementById(buttonId);
     button.addEventListener('click',function(){
-        fetch("https://www.w3.org/TR/PNG/iso_8859-1.txt)
+        fetch("https://raw.githubusercontent.com/bestiasia/FlyingPage/main/data/"+dest+".txt)
         .then(response => {return response.text();})
         .then(data => {document.getElementById("site").innerHTML = data; })
     },false);
