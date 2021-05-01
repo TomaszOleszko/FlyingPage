@@ -1,1 +1,75 @@
-<h1>Home</h1>
+<div class="row text-center">
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Linux</h5>
+              <p class="card-text">
+                The open source operating system
+              </p>
+              <a href="https://elixir.bootlin.com/linux/latest/source" class="btn btn-primary">Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Gimp</h5>
+              <p class="card-text">
+                The open-source raster graphics editor
+              </p>
+              <a href="https://www.gimp.org/source/" class="btn btn-primary">Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Audacity</h5>
+              <p class="card-text">
+                A powerful audio editor, ideal for music and podcasts
+              </p>
+              <a href="https://www.audacityteam.org/" class="btn btn-primary">Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">Shotcut</h5>
+              <p class="card-text">
+                A slick open source program for advanced video editing
+              </p>
+              <a href="https://shotcut.org/" class="btn btn-primary">Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">VLC Media Player</h5>
+              <p class="card-text">
+                An open source media player than can play virtually anything
+              </p>
+              <a href="https://www.videolan.org/vlc/" class="btn btn-primary">Source</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-sm-6">
+          <div class="card">
+            <div class="card-body">
+              <h5 class="card-title">LibreOffice</h5>
+              <p class="card-text">
+                A open source alternative to Microsoft Office
+              </p>
+              <a href="https://www.libreoffice.org/" class="btn btn-primary">Source</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
