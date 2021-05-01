@@ -11,3 +11,25 @@ function downloadData(buttonId,dest){
         .then(data => {document.getElementById("site").innerHTML = data; })
     },false);
 }
+
+var site
+function saveSite() {
+    localStorage.setItem('site', JSON.stringify(site));
+}
+function createCard(){
+    var cardContent = {};
+    var title = document.getElementById("CARD_title").value;
+    var content = document.getElementById("CARD_content").value;
+    var button = document.getElementById("CARD_button").value;
+
+    //walidacja do dodania!!!
+
+    cardContent.title = title;
+    cardContent.content = content;
+    cardContent.button = button;
+
+    return cardContent;
+}
+function addCard(cardContent){
+
+}
