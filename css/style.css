@@ -1,8 +1,10 @@
-* {
-    box-sizing: border-box;
+*{
+    padding-right: 0px;
+    padding-left: 0px;
 }
-#container{
+#kontener{
     min-height: 100vh;
+    padding: 0;
     background-image: linear-gradient( 135.8deg,  rgba(26,26,29,1) 27.1%, rgba(111,34,50,1) 77.5% );
     background-size: cover !important;
 }
