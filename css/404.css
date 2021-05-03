@@ -1,0 +1,38 @@
+body{
+    background-image: url("../img/404.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+    background-color: #464646;
+    background-size: cover;
+}
+.wrapper {
+    text-align: center;
+}
+.button {
+    position: absolute;
+    top: 41%;
+    left: 34%;
+
+    margin: 10px;
+    padding: 15px;
+    font-family: "Arial Black", sans-serif;
+    font-size: 20px;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 0.5s;
+    background-size: 200% auto;
+    color: purple;
+    box-shadow: 0 0 20px plum;
+    border-radius: 10px;
+    width: 200px;
+    cursor: pointer;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+    background-image: linear-gradient(to right, #DD5E89 0%, #F7BB97 51%, #DD5E89 100%)
+}
+.button:hover{
+    box-shadow: 0 10px 20px rgba(0,0,0,0.19), 0 6px 6px rgba(0,0,0,0.23);
+    margin: 8px 10px 12px;
+}
