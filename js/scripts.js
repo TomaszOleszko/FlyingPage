@@ -1,6 +1,6 @@
 document.addEventListener("DOMContentLoaded", function() {
         downloadData("b1","home");
-        downloadData("b2","color");
+        downloadData("b2","map");
         downloadData("b3","about");
    })
 function downloadData(buttonId,dest){
