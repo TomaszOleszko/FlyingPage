@@ -30,3 +30,11 @@ a{
     width: 50%;
     border-bottom-right-radius: 3px;
 }
+.row-flex{
+    display: flex;
+    flex-wrap: wrap;
+}
+.card{
+  height: 100%;
+  padding: 0;
+}
