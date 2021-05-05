@@ -2,66 +2,75 @@
 
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <title>Home page</title>
   <link rel="icon" type="image/png" href="img/icon.png">
   <meta name="description" content="Landing page">
   <meta name="author" content="Tomasz Oleszko">
 
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+  <!-- Latest compiled and minified CSS -->
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+
+  <!-- jQuery library -->
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+  <!-- Popper JS -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+
+  <!-- Latest compiled JavaScript -->
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 
   <link rel="stylesheet" href="css/style.css">
   <script src="js/scripts.js"></script>
 </head>
 <body>
-  <div id="kontener">
-    <nav class="navbar navbar-inverse fixed-top">
-      <div class="container-fluid">
-        <div class="navbar-header">
-          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </button>
-          <a class="navbar-brand">Open Source Backyard</a>
-        </div>
-        <div class="collapse navbar-collapse" id="myNavbar">
-          <ul class="nav navbar-nav">
-            <li class="active"><a id="b1">Home</a></li>
-            <li><a>Test2</a></li>
-
+    <div class="kontener">
+      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+        <!-- Brand -->
+        <a class="navbar-brand" href="#">Open Source Backyard</a>
+      
+        <!-- Toggler/collapsibe Button -->
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      
+        <!-- Navbar links -->
+        <div class="collapse navbar-collapse" id="collapsibleNavbar">
+          <ul class="navbar-nav">
+            <li class="nav-item">
+              <a class="nav-link active" id="b1">Home</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="b2">Map</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" id="b3">About</a>
+            </li>
           </ul>
-          <ul class="nav navbar-nav navbar-right">
-            <li><a><span class="glyphicon glyphicon-cog"></span> Settings</a></li>
-          </ul>
         </div>
-      </div>
-    </nav>
-    <section id="site">
-
-
-    </section>
-    <footer class="footer">
-      <div class="container">
-          <div class="row footer_row">
-              <div class="col-lg-12 footer_col">
-                <div class="footer_item text-center">
-                  <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
-                      <div>
-                        <img src="img/mail.png" alt="">
-                      </div>
-                      <div class="foote_title">e-mail</div>
-                      <div class="footer_list">tomasz.oleszko@pollub.edu.pl</div>
+      </nav>
+      <section id="site">
+        
+      </section>
+      <footer class="footer fixed-bottom">
+        <div class="container">
+            <div class="row footer_row">
+                <div class="col-lg-12 footer_col">
+                  <div class="footer_item text-center">
+                    <div class="footer_icon d-flex flex-column align-items-center justify-content-center ml-auto mr-auto">
+                        <div>
+                          <img src="img/mail.png" alt="">
+                        </div>
+                        <div class="foote_title text-white">e-mail</div>
+                        <div class="footer_list text-muted">tomasz.oleszko@pollub.edu.pl</div>
+                    </div>
                   </div>
                 </div>
-              </div>
-          </div>
-      </div>
-    </footer>
-  </div>
+            </div>
+        </div>
+      </footer>
+    </div>
 </body>
 </html>
