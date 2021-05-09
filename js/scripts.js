@@ -9,7 +9,9 @@ function downloadData(buttonId,dest){
         fetch("https://raw.githubusercontent.com/bestiasia/FlyingPage/main/data/"+dest+".txt")
         .then(response => {return response.text();})
         .then(data => {document.getElementById("site").innerHTML = data;
-        window.location.reload(true);
+        $(".prawy-rog").click(function(){
+            $(this).parents(".col-md-6.col-lg-4.col-sm-12").hide();
+        });
                       })
     },false);
 }
