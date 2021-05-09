@@ -33,6 +33,10 @@ a{
 .row-flex{
     display: flex;
     flex-wrap: wrap;
+    margin-top: 1vh;
+}
+.col-md-6, .col-lg-4, .col-sm-12{
+    padding-top: 4vh;
 }
 .card{
   height: 100%;
