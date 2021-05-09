@@ -8,7 +8,9 @@ function downloadData(buttonId,dest){
     button.addEventListener('click',function(){
         fetch("https://raw.githubusercontent.com/bestiasia/FlyingPage/main/data/"+dest+".txt")
         .then(response => {return response.text();})
-        .then(data => {document.getElementById("site").innerHTML = data; })
+        .then(data => {document.getElementById("site").innerHTML = data;
+        window.location.reload(false);
+                      })
     },false);
 }
 $(document).ready(function(){
