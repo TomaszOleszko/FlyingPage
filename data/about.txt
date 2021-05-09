@@ -1,5 +1,16 @@
 <h1>What is open source software?</h1>
-Open source software is software with source code that anyone can inspect, modify, and enhance.
+The distribution terms of open-source software must comply with the following criteria:<br> 
+1. Free Redistribution<br>
+2. Source Code<br>
+3. Derived Works<br>
+4. Integrity of The Author's Source Code<br>
+5. No Discrimination Against Persons or Groups<br>
+6. No Discrimination Against Fields of Endeavor<br>
+7. Distribution of License<br>
+8. License Must Not Be Specific to a Product<br>
+9. License Must Not Restrict Other Software<br>
+10. License Must Be Technology-Neutral
+
 <footer class="footer">
         <div class="container">
             <div class="row footer_row">
