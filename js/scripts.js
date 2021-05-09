@@ -9,7 +9,7 @@ function downloadData(buttonId,dest){
         fetch("https://raw.githubusercontent.com/bestiasia/FlyingPage/main/data/"+dest+".txt")
         .then(response => {return response.text();})
         .then(data => {document.getElementById("site").innerHTML = data;
-        window.location.reload(false);
+        window.location.reload(true);
                       })
     },false);
 }
