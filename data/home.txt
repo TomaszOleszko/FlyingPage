@@ -1,6 +1,5 @@
 <div class="container-fluid">
           <div class="row text-center row-flex">
-        
                 <div class="col-md-6 col-lg-4 col-sm-12">
                   <div class="card bg-transparent border-secondary rounded">
                     <div class="card-body">
@@ -12,8 +11,8 @@
                     </div>
                     <div class="container-fluid">
                       <div class="row text-center">
-                        <a class="col-6 text-dark bg-success lewy-rog">Edit</a>
-                        <a class="col-6 text-dark bg-danger prawy-rog">Delete</a>
+                        <button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>
+                        <button class="col-6 text-dark bg-danger prawy-rog">Delete</button>
                       </div>
                     </div>
                   </div>
@@ -29,8 +28,8 @@
                     </div>
                     <div class="container-fluid">
                       <div class="row text-center">
-                        <a class="col-6 text-dark bg-success lewy-rog">Edit</a>
-                        <a class="col-6 text-dark bg-danger prawy-rog">Delete</a>
+                        <button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>
+                        <button class="col-6 text-dark bg-danger prawy-rog">Delete</button>
                       </div>
                     </div>
                   </div>
@@ -46,8 +45,8 @@
                     </div>
                     <div class="container-fluid">
                       <div class="row text-center">
-                        <a class="col-6 text-dark bg-success lewy-rog">Edit</a>
-                        <a class="col-6 text-dark bg-danger prawy-rog">Delete</a>
+                        <button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>
+                        <button class="col-6 text-dark bg-danger prawy-rog">Delete</button>
                       </div>
                     </div>
                   </div>
@@ -63,8 +62,8 @@
                     </div>
                     <div class="container-fluid">
                       <div class="row text-center">
-                        <a class="col-6 text-dark bg-success lewy-rog">Edit</a>
-                        <a class="col-6 text-dark bg-danger prawy-rog">Delete</a>
+                        <button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>
+                        <button class="col-6 text-dark bg-danger prawy-rog">Delete</button>
                       </div>
                     </div>
                   </div>
@@ -80,8 +79,8 @@
                     </div>
                     <div class="container-fluid">
                       <div class="row text-center">
-                        <a class="col-6 text-dark bg-success lewy-rog">Edit</a>
-                        <a class="col-6 text-dark bg-danger prawy-rog">Delete</a>
+                        <button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>
+                        <button class="col-6 text-dark bg-danger prawy-rog">Delete</button>
                       </div>
                     </div>
                   </div>
@@ -97,8 +96,8 @@
                     </div>
                     <div class="container-fluid">
                       <div class="row text-center">
-                        <a class="col-6 text-dark bg-success lewy-rog">Edit</a>
-                        <a class="col-6 text-dark bg-danger prawy-rog">Delete</a>
+                        <button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>
+                        <button class="col-6 text-dark bg-danger prawy-rog">Delete</button>
                       </div>
                     </div>
                   </div>
