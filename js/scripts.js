@@ -11,6 +11,11 @@ function downloadData(buttonId,dest){
         .then(data => {document.getElementById("site").innerHTML = data; })
     },false);
 }
+$(document).ready(function(){
+    $(".prawy-rog").click(function(){
+        $(this).parents(".col-md-6.col-lg-4.col-sm-12").hide();
+    });
+  });
 
 var site
 function saveSite() {
@@ -29,7 +34,4 @@ function createCard(){
     cardContent.button = button;
 
     return cardContent;
-}
-function addCard(cardContent){
-
 }
