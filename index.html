@@ -21,7 +21,7 @@
 
   <!-- Latest compiled JavaScript -->
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
+  <script src="https://kit.fontawesome.com/a49937c3da.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/scripts.js"></script>
 </head>
@@ -59,6 +59,40 @@
                       </div>
                     </div>
                   </div>
+  
+                  <div class="modal fade" id="CreateModal" tabindex="-1" aria-labelledby="CreateModalLabel" aria-hidden="true">
+                  <div class="modal-dialog">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="CreateModalLabel">Card Create</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body" id="CreateModalContent">
+                        <form>
+                          <div class="form-group">
+                            <label for="TitleFormControlInput">Title</label>
+                            <input type="text" class="form-control" id="CreateTitleFormControlInput">
+                          </div>
+                          <div class="form-group">
+                            <label for="DescFormControlTextarea">Description</label>
+                            <textarea class="form-control" id="CreateDescFormControlTextarea" rows="3"></textarea>
+                          </div>
+                          <div class="form-group">
+                            <label for="LinkFormControlInput">Link</label>
+                            <input type="link" class="form-control" id="CreateLinkFormControlInput">
+                          </div>
+                        </form>
+                      </div>
+                      <div class="modal-footer">
+                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-success">Create</button>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
     <div class="kontener">
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
         <!-- Brand -->
@@ -81,12 +115,13 @@
             <li class="nav-item">
               <a class="nav-link" id="b3">About</a>
             </li>
+            <li>
+              <a id="ikon" data-toggle="modal" data-target="#CreateModal"> <i class="far fa-plus-square"></i></a>
+            </li>
           </ul>
         </div>
       </nav>
-      <section id="site">
-        
-      </section>
+      <section id="site"></section>
     </div>
 </body>
 </html>
