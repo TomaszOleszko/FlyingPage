@@ -2,6 +2,7 @@ document.addEventListener("DOMContentLoaded", function() {
         downloadData("b1","home");
         downloadData("b2","map");
         downloadData("b3","about");
+        fixButtons();
    })
 function downloadData(buttonId,dest){
     var button = document.getElementById(buttonId);
@@ -15,8 +16,51 @@ function downloadData(buttonId,dest){
                       })
     },false);
 }
-$(document).ready(function(){
+function fixButtons(){
     $(".prawy-rog").click(function(){
         $(this).parents(".col-md-6.col-lg-4.col-sm-12").hide();
     });
-  });
+    $('#submitEdit').click(function(){
+        $('#formEdit').submit();
+    })
+    $('#submitCreate').click(function(){
+        $('#formCreate').submit();
+    })
+}
+function createCard(){
+    var cardContent = {};
+    var title = document.getElementById("CreateTitleFormControlInput").value;
+    var desc = document.getElementById("CreateDescFormControlTextarea").value;
+    var link = document.getElementById("CreateLinkFormControlInput").value;
+
+    //walidacja do dodania!!!
+
+    cardContent.title = title;
+    cardContent.desc = desc;
+    cardContent.link = link;
+
+    return insertCard(cardContent);
+}
+
+function insertCard(cardContent){
+    var html =  '<div class="col-md-6 col-lg-4 col-sm-12">'+
+                  '<div class="card bg-transparent border-secondary rounded">'+
+                    '<div class="card-body">'+
+                      '<h5 class="card-title bg-primary rounded">'+cardContent.title+'</h5>'+
+                      '<p class="card-text">'+cardContent.desc+'</p>'+
+                      '<a href="'+cardContent.link+'" class="btn btn-primary">Source</a>'+
+                    '</div>'+
+                    '<div class="container-fluid">'+
+                      '<div class="row text-center">'+
+                        '<button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>'+
+                        '<button class="col-6 text-dark bg-danger prawy-rog">Delete</button>'+
+                      '</div>'+
+                    '</div>'+
+                  '</div>'+
+                '</div>';
+    document.getElementById("cardsSite").innerHTML += html;
+    $(".prawy-rog").click(function(){
+        $(this).parents(".col-md-6.col-lg-4.col-sm-12").hide();
+    });
+    return false;
+}
