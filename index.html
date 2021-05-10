@@ -26,72 +26,72 @@
   <script src="js/scripts.js"></script>
 </head>
 <body>
-                     <!-- Modal -->
-                  <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h5 class="modal-title" id="exampleModalLabel">Card Edit</h5>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                          </button>
-                        </div>
-                        <div class="modal-body" id="ModalContent">
-                          <form>
-                            <div class="form-group">
-                              <label for="TitleFormControlInput">Title</label>
-                              <input type="text" class="form-control" id="TitleFormControlInput">
-                            </div>
-                            <div class="form-group">
-                              <label for="DescFormControlTextarea">Description</label>
-                              <textarea class="form-control" id="DescFormControlTextarea" rows="3"></textarea>
-                            </div>
-                            <div class="form-group">
-                              <label for="LinkFormControlInput">Link</label>
-                              <input type="link" class="form-control" id="LinkFormControlInput">
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                          <button type="button" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-  
-                  <div class="modal fade" id="CreateModal" tabindex="-1" aria-labelledby="CreateModalLabel" aria-hidden="true">
-                  <div class="modal-dialog">
-                    <div class="modal-content">
-                      <div class="modal-header">
-                        <h5 class="modal-title" id="CreateModalLabel">Card Create</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                          <span aria-hidden="true">&times;</span>
-                        </button>
-                      </div>
-                      <div class="modal-body" id="CreateModalContent">
-                        <form>
-                          <div class="form-group">
-                            <label for="TitleFormControlInput">Title</label>
-                            <input type="text" class="form-control" id="CreateTitleFormControlInput">
-                          </div>
-                          <div class="form-group">
-                            <label for="DescFormControlTextarea">Description</label>
-                            <textarea class="form-control" id="CreateDescFormControlTextarea" rows="3"></textarea>
-                          </div>
-                          <div class="form-group">
-                            <label for="LinkFormControlInput">Link</label>
-                            <input type="link" class="form-control" id="CreateLinkFormControlInput">
-                          </div>
-                        </form>
-                      </div>
-                      <div class="modal-footer">
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-success">Create</button>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+                     <!-- Modal Edit-->
+<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Card Edit</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="ModalContent">
+        <form onsubmit="return editCard();" id="formEdit">
+          <div class="form-group">
+            <label for="TitleFormControlInput">Title</label>
+            <input type="text" class="form-control" id="TitleFormControlInput">
+          </div>
+          <div class="form-group">
+            <label for="DescFormControlTextarea">Description</label>
+            <textarea class="form-control" id="DescFormControlTextarea" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="LinkFormControlInput">Link</label>
+            <input type="link" class="form-control" id="LinkFormControlInput">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" id="submitEdit" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="CreateModal" tabindex="-1" aria-labelledby="CreateModalLabel" aria-hidden="true">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="CreateModalLabel">Card Create</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" id="CreateModalContent">
+        <form onsubmit="return createCard();" id="formCreate">
+          <div class="form-group">
+            <label for="TitleFormControlInput">Title</label>
+            <input type="text" class="form-control" id="CreateTitleFormControlInput">
+          </div>
+          <div class="form-group">
+            <label for="DescFormControlTextarea">Description</label>
+            <textarea class="form-control" id="CreateDescFormControlTextarea" rows="3"></textarea>
+          </div>
+          <div class="form-group">
+            <label for="LinkFormControlInput">Link</label>
+            <input type="link" class="form-control" id="CreateLinkFormControlInput">
+          </div>
+        </form>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+        <button type="button" id="submitCreate" class="btn btn-success">Create</button>
+      </div>
+    </div>
+  </div>
+</div>
   
     <div class="kontener">
       <nav class="navbar navbar-expand-md bg-dark navbar-dark">
