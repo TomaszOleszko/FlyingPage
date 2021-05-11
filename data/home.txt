@@ -11,7 +11,7 @@
                     </div>
                     <div class="container-fluid">
                       <div class="row text-center">
-                        <button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>
+                        <button type="button" class="col-6 text-dark bg-success lewy-rog"  onclick="ButtonClicked(this.id);" data-toggle="modal" data-target="#EditModal">Edit</button>
                         <button class="col-6 text-dark bg-danger prawy-rog">Delete</button>
                       </div>
                     </div>
@@ -28,7 +28,7 @@
                     </div>
                     <div class="container-fluid">
                       <div class="row text-center">
-                        <button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>
+                        <button type="button" class="col-6 text-dark bg-success lewy-rog" onclick="ButtonClicked(this.id);"  data-toggle="modal" data-target="#EditModal">Edit</button>
                         <button class="col-6 text-dark bg-danger prawy-rog">Delete</button>
                       </div>
                     </div>
@@ -45,7 +45,7 @@
                     </div>
                     <div class="container-fluid">
                       <div class="row text-center">
-                        <button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>
+                        <button type="button" class="col-6 text-dark bg-success lewy-rog" onclick="ButtonClicked(this.id);"  data-toggle="modal" data-target="#EditModal">Edit</button>
                         <button class="col-6 text-dark bg-danger prawy-rog">Delete</button>
                       </div>
                     </div>
@@ -62,7 +62,7 @@
                     </div>
                     <div class="container-fluid">
                       <div class="row text-center">
-                        <button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>
+                        <button type="button" class="col-6 text-dark bg-success lewy-rog" onclick="ButtonClicked(this.id);" data-toggle="modal" data-target="#EditModal">Edit</button>
                         <button class="col-6 text-dark bg-danger prawy-rog">Delete</button>
                       </div>
                     </div>
@@ -79,7 +79,7 @@
                     </div>
                     <div class="container-fluid">
                       <div class="row text-center">
-                        <button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>
+                        <button type="button" class="col-6 text-dark bg-success lewy-rog" onclick="ButtonClicked(this.id);" data-toggle="modal" data-target="#EditModal">Edit</button>
                         <button class="col-6 text-dark bg-danger prawy-rog">Delete</button>
                       </div>
                     </div>
@@ -96,7 +96,7 @@
                     </div>
                     <div class="container-fluid">
                       <div class="row text-center">
-                        <button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>
+                        <button type="button" class="col-6 text-dark bg-success lewy-rog" onclick="ButtonClicked(this.id);" data-toggle="modal" data-target="#EditModal">Edit</button>
                         <button class="col-6 text-dark bg-danger prawy-rog">Delete</button>
                       </div>
                     </div>
