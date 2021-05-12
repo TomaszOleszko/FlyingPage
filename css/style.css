@@ -42,8 +42,22 @@ a{
   height: 100%;
   padding: 0;
 }
-#ikon{
+.ikon{
     font-size: 1.74em;
     color: chartreuse;
+    padding-left: 0.35em;
+}
+#saveIkon{
+    font-size: 1.84em;
+    color:cornflowerblue;
+    line-height: 1.47em;
+}
+.fa-file{
+    font-size: 1.6em;
+}
+.fa-upload{
+    color: chocolate;
+    font-size: 1.75em;
+    line-height: 1.4em;
     padding-left: 0.35em;
 }
