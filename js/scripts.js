@@ -3,6 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
         downloadData("b2","map");
         downloadData("b3","about");
         fixButtons();
+        $('#b1').click();
    })
 function downloadData(buttonId,dest){
     var button = document.getElementById(buttonId);
@@ -13,7 +14,7 @@ function downloadData(buttonId,dest){
         $(".prawy-rog").click(function(){
             $(this).parents(".col-md-6.col-lg-4.col-sm-12").hide();
         });
-                      })
+      })
     },false);
 }
 function fixButtons(){
@@ -26,6 +27,32 @@ function fixButtons(){
     $('#submitCreate').click(function(){
         $('#formCreate').submit();
     })
+    $('.nav-link').click(function(){
+    $('.nav-link.active i').removeClass('fa-folder-open');
+    $('.nav-link.active').removeClass('active');
+    $(this).children('.far').addClass('fa-folder-open');
+    $(this).addClass("active");
+   })
+}
+function savePageContent(){
+  localStorage.setItem("Cards",getPageContent())
+}
+function loadPageContent(){
+  let cardObj = JSON.parse(localStorage.getItem("Cards"));
+  cardObj.cards.forEach(element => {
+    insertCard(element);
+  });
+}
+function getPageContent(){
+  jsonObj ={
+    "cards":[]
+  };
+  $("div[name='kontent']").each(function(){
+    jsonObj.cards.push({"title": this.querySelectorAll('.card-title')[0].innerText, 
+    "desc": this.querySelectorAll('.card-text')[0].innerText,
+    "link": $(this).children('.ref').attr('href')});
+  })
+  return JSON.stringify(jsonObj);
 }
 function createCard(){
     var cardContent = {};
@@ -42,49 +69,29 @@ function createCard(){
     return insertCard(cardContent);
 }
 
-function insertCard(cardContent){
-    var html =  '<div class="col-md-6 col-lg-4 col-sm-12">'+
-                  '<div class="card bg-transparent border-secondary rounded">'+
-                    '<div class="card-body">'+
-                      '<h5 class="card-title bg-primary rounded">'+cardContent.title+'</h5>'+
-                      '<p class="card-text">'+cardContent.desc+'</p>'+
-                      '<a href="'+cardContent.link+'" class="btn btn-primary">Source</a>'+
-                    '</div>'+
-                    '<div class="container-fluid">'+
-                      '<div class="row text-center">'+
-                        '<button type="button" class="col-6 text-dark bg-success lewy-rog" data-toggle="modal" data-target="#EditModal">Edit</button>'+
-                        '<button class="col-6 text-dark bg-danger prawy-rog">Delete</button>'+
-                      '</div>'+
-                    '</div>'+
-                  '</div>'+
-                '</div>';
-    document.getElementById("cardsSite").innerHTML += html;
-    $(".prawy-rog").click(function(){
-        $(this).parents(".col-md-6.col-lg-4.col-sm-12").hide();
-    });
-    return false;
-}
 var id=0;
 function insertCard(cardContent){
     id++;
-    var html =  '<div class="col-md-6 col-lg-4 col-sm-12">'+
-                  '<div class="card bg-transparent border-secondary rounded">'+
-                    '<div class="card-body">'+
-                      '<h5 class="card-title bg-primary rounded">'+cardContent.title+'</h5>'+
-                      '<p class="card-text">'+cardContent.desc+'</p>'+
-                      '<a href="'+cardContent.link+'" class="btn btn-primary">Source</a>'+
-                    '</div>'+
-                    '<div class="container-fluid">'+
-                      '<div class="row text-center">'+
-                        '<button type="button" class="col-6 text-dark bg-success lewy-rog"id="'+id+'" onclick="ButtonClicked(this.id);" data-toggle="modal" data-target="#EditModal">Edit</button>'+
-                        '<button class="col-6 text-dark bg-danger prawy-rog">Delete</button>'+
-                      '</div>'+
-                    '</div>'+
-                  '</div>'+
-                '</div>';
+    let html = 
+          '<div class="col-md-6 col-lg-4 col-sm-12">'+
+            '<div class="card bg-transparent border-secondary rounded">'+
+              '<div class="card-body" name="kontent">'+
+                '<h5 class="card-title bg-primary rounded">'+cardContent.title+'</h5>'+
+                '<p class="card-text">'+cardContent.desc+'</p>'+
+                '<a href="'+cardContent.link+'" class="btn btn-primary ref"><i class="fas fa-archive"></i></a>'+
+            '</div>'+
+              '<div class="container-fluid">'+
+                '<div class="row text-center">'+
+                  '<button type="button" class="col-6 text-dark bg-success lewy-rog" id="'+id+'" onclick="ButtonClicked(this.id);" data-toggle="modal" data-target="#EditModal">Edit</button>'+
+                  '<button class="col-6 text-dark bg-danger prawy-rog">Delete</button>'+
+                '</div>'+
+              '</div>'+
+            '</div>'+
+          '</div>';
+
     document.getElementById("cardsSite").innerHTML += html;
     $(".prawy-rog").click(function(){
-        $(this).parents(".col-md-6.col-lg-4.col-sm-12").hide();
+        $(this).parents(".col-md-6.col-lg-4.col-sm-12").remove();
     });
     return false;
 }
@@ -104,10 +111,10 @@ function editCard(){
     return changeCard(cardContent);
 }
 function changeCard(cardContent){
-    var html =     '<div class="card-body">'+
+    var html =     '<div class="card-body" name="kontent">'+
                       '<h5 class="card-title bg-primary rounded">'+cardContent.title+'</h5>'+
                       '<p class="card-text">'+cardContent.desc+'</p>'+
-                      '<a href="'+cardContent.link+'" class="btn btn-primary">Source</a>'+
+                      '<a href="'+cardContent.link+'" class="btn btn-primary ref"><i class="fas fa-archive"></i></a>'+
                     '</div>'+
                     '<div class="container-fluid">'+
                       '<div class="row text-center">'+
