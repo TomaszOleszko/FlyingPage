@@ -19,7 +19,7 @@ function downloadData(buttonId,dest){
 }
 function fixButtons(){
     $(".prawy-rog").click(function(){
-        $(this).parents(".col-md-6.col-lg-4.col-sm-12").hide();
+        $(this).parents(".col-md-6.col-lg-4.col-sm-12").remove();
     });
     $('#submitEdit').click(function(){
         $('#formEdit').submit();
@@ -28,11 +28,11 @@ function fixButtons(){
         $('#formCreate').submit();
     })
     $('.nav-link').click(function(){
-    $('.nav-link.active i').removeClass('fa-folder-open');
-    $('.nav-link.active').removeClass('active');
-    $(this).children('.far').addClass('fa-folder-open');
-    $(this).addClass("active");
-   })
+      $('.nav-link.active i').removeClass('fa-folder-open');
+      $('.nav-link.active').removeClass('active');
+      $(this).children('.far').addClass('fa-folder-open');
+      $(this).addClass("active");
+    })
 }
 function savePageContent(){
   localStorage.setItem("Cards",getPageContent())
@@ -54,6 +54,7 @@ function getPageContent(){
   })
   return JSON.stringify(jsonObj);
 }
+
 function createCard(){
     var cardContent = {};
     var title = document.getElementById("CreateTitleFormControlInput").value;
@@ -123,6 +124,9 @@ function changeCard(cardContent){
                       '</div>'+
                     '</div>';
     $('#'+button).parents(".card.bg-transparent.border-secondary.rounded").html(html);
+    $(".prawy-rog").click(function(){
+      $(this).parents(".col-md-6.col-lg-4.col-sm-12").remove();
+  });
     return false;
 }
 function ButtonClicked(button_id){
