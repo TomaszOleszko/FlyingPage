@@ -47,7 +47,7 @@ function getPageContent(){
   jsonObj ={
     "cards":[]
   };
-  $("div[name='kontent']").each(function(){
+  $(".kontent").each(function(){
     jsonObj.cards.push({"title": this.querySelectorAll('.card-title')[0].innerText, 
     "desc": this.querySelectorAll('.card-text')[0].innerText,
     "link": $(this).children('.ref').attr('href')});
@@ -76,7 +76,7 @@ function insertCard(cardContent){
     let html = 
           '<div class="col-md-6 col-lg-4 col-sm-12">'+
             '<div class="card bg-transparent border-secondary rounded">'+
-              '<div class="card-body" name="kontent">'+
+              '<div class="card-body kontent">'+
                 '<h5 class="card-title bg-primary rounded">'+cardContent.title+'</h5>'+
                 '<p class="card-text">'+cardContent.desc+'</p>'+
                 '<a href="'+cardContent.link+'" class="btn btn-primary ref"><i class="fas fa-archive"></i></a>'+
@@ -112,7 +112,7 @@ function editCard(){
     return changeCard(cardContent);
 }
 function changeCard(cardContent){
-    var html =     '<div class="card-body" name="kontent">'+
+    var html =     '<div class="card-body kontent">'+
                       '<h5 class="card-title bg-primary rounded">'+cardContent.title+'</h5>'+
                       '<p class="card-text">'+cardContent.desc+'</p>'+
                       '<a href="'+cardContent.link+'" class="btn btn-primary ref"><i class="fas fa-archive"></i></a>'+
