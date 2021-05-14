@@ -25,7 +25,7 @@ function downloadDataJson(buttonId,dest){
     .then(data => {data.cards.forEach(element => {
         insertCard(element);
       });
-      insertCard(data);})
+     })
   },false);
 }
 function fixButtons(){
