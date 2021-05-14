@@ -44,6 +44,21 @@ function fixButtons(){
       $(this).children('.far').addClass('fa-folder-open');
       $(this).addClass("active");
     })
+    document.getElementById('file-selector').addEventListener(
+      'change',
+      function () {
+          var fr = new FileReader();
+          fr.onload = function () {
+              //console.log(JSON.parse(this.result));
+              let cardObj = JSON.parse(this.result);
+              document.getElementById("cardsSite").innerHTML = "";
+              cardObj.cards.forEach(element => {
+                insertCard(element);
+              });
+          };
+          fr.readAsText(this.files[0]);
+      }
+  );    
 }
 function savePageContent(){
   localStorage.setItem("Cards",getPageContent());
