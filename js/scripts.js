@@ -1,6 +1,5 @@
 document.addEventListener("DOMContentLoaded", function() {
         downloadData("b1","home");
-        downloadData("b2","Map");
         downloadData("b4","about");
         downloadDataJson("b3","software")
         fixButtons();
@@ -47,8 +46,7 @@ function fixButtons(){
     })
 }
 function savePageContent(){
-  $('#toaster').toast('show')
-  localStorage.setItem("Cards",getPageContent())
+  localStorage.setItem("Cards",getPageContent());
 }
 function loadPageContent(){
   if(localStorage.length == 0 || JSON.parse(localStorage.getItem('Cards')) == null){
