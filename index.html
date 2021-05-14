@@ -118,8 +118,26 @@
     </div>
   </div>
 
-  
-  
+  <div class="modal fade" id="infoModal" tabindex="-1" aria-labelledby="infoModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="infoModalLabel"><i class="far fa-save ikon"></i>Saving info</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+          Cards saved in Local Storage
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">OK</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+
   <div class="kontener">
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
       <!-- Brand -->
@@ -148,35 +166,26 @@
           <li>
             <a class="ikon" data-toggle="modal" data-target="#CreateModal"> <i class="far fa-plus-square"></i></a>
 
-            <a><i class="far fa-save ikon" id="saveIkon" onclick="savePageContent()"></i></a>
+            <a data-toggle="modal" data-target="#infoModal"><i class="far fa-save ikon" id="saveIkon"
+                onclick="savePageContent()"></i></a>
 
             <a><i class="fas fa-cloud-upload-alt ikon" onclick="loadPageContent()"></i></a>
 
             <a><i class="fas fa-file-download ikon" onclick="downloadJson()"></i></a>
 
-            <a><i class="fas fa-file-import ikon" onclick="document.getElementById('file-selector').click();"><input
-                  type="file" id="file-selector" accept=".json" style="display: none;"></i></a>
+            <i class="fas fa-file-import ikon" onclick="document.getElementById('file-selector').click();"><input
+                type="file" id="file-selector" accept=".json" style="display: none;"></i>
           </li>
         </ul>
       </div>
     </nav>
-
-    <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
-      <div class="toast" id="toaster" data-delay="5000" style="position: absolute; top: 1em; right: 1em;">
-        <div class="toast-header">
-          <i class="far fa-save ikon" id="img_toast"></i>
-          Cards saved in Local Storage
+    <div id="site">
+      <div class="container-fluid">
+        <div class="row text-center row-flex" id="cardsSite">
         </div>
       </div>
     </div>
-
-    <section id="site">
-      <div class="container-fluid">
-        <div class="row text-center row-flex" id="cardsSite">
-
-        </div>
-      </div>
-    </section>
   </div>
 </body>
+
 </html>
