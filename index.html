@@ -1,6 +1,7 @@
 <!doctype html>
 
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -24,116 +25,148 @@
   <script src="https://kit.fontawesome.com/a49937c3da.js" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="css/style.css">
   <script src="js/scripts.js"></script>
-</head>
-<body>
-                     <!-- Modal Edit-->
-<div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="exampleModalLabel">Card Edit</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="ModalContent">
-        <form onsubmit="return editCard();" id="formEdit">
-          <div class="form-group">
-            <label for="TitleFormControlInput">Title</label>
-            <input type="text" class="form-control" id="TitleFormControlInput">
-          </div>
-          <div class="form-group">
-            <label for="DescFormControlTextarea">Description</label>
-            <textarea class="form-control" id="DescFormControlTextarea" rows="3"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="LinkFormControlInput">Link</label>
-            <input type="url" class="form-control" id="LinkFormControlInput">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" id="submitEdit" class="btn btn-primary">Save changes</button>
-      </div>
-    </div>
-  </div>
-</div>
 
-<div class="modal fade" id="CreateModal" tabindex="-1" aria-labelledby="CreateModalLabel" aria-hidden="true">
-  <div class="modal-dialog">
-    <div class="modal-content">
-      <div class="modal-header">
-        <h5 class="modal-title" id="CreateModalLabel">Card Create</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <div class="modal-body" id="CreateModalContent">
-        <form onsubmit="return createCard();" id="formCreate">
-          <div class="form-group">
-            <label for="TitleFormControlInput">Title</label>
-            <input type="text" class="form-control" id="CreateTitleFormControlInput">
-          </div>
-          <div class="form-group">
-            <label for="DescFormControlTextarea">Description</label>
-            <textarea class="form-control" id="CreateDescFormControlTextarea" rows="3"></textarea>
-          </div>
-          <div class="form-group">
-            <label for="LinkFormControlInput">Link</label>
-            <input type="url" class="form-control" id="CreateLinkFormControlInput">
-          </div>
-        </form>
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
-        <button type="button" id="submitCreate" class="btn btn-success">Create</button>
+</head>
+
+<body>
+
+  <!-- Modal Edit-->
+  <div class="modal fade" id="EditModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Card Edit</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="ModalContent">
+          <form onsubmit="return editCard();" id="formEdit">
+            <div class="form-group">
+              <label for="TitleFormControlInput">Title</label>
+              <input type="text" class="form-control" id="TitleFormControlInput">
+            </div>
+            <div class="form-group">
+              <label for="DescFormControlTextarea">Description</label>
+              <textarea class="form-control" id="DescFormControlTextarea" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="LinkFormControlInput">Link</label>
+              <input type="url" class="form-control" id="LinkFormControlInput">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="button" id="submitEdit" class="btn btn-primary">Save changes</button>
+        </div>
       </div>
     </div>
   </div>
-</div>
-  
-    <div class="kontener">
-      <nav class="navbar navbar-expand-md bg-dark navbar-dark">
-        <!-- Brand -->
-        <a class="navbar-brand" href="#">Open Source Backyard</a>
-      
-        <!-- Toggler/collapsibe Button -->
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
-          <span class="navbar-toggler-icon"></span>
-        </button>
-      
-        <!-- Navbar links -->
-        <div class="collapse navbar-collapse" id="collapsibleNavbar">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" id="b1">Home <i class="far fa-folder"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="b2">Map <i class="far fa-folder"></i></a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" id="b3">About <i class="far fa-folder"></i></a>
-            </li>
-            <li>
-              <a class="ikon" data-toggle="modal" data-target="#CreateModal"> <i class="far fa-plus-square"></i></a>
-            </li> 
-            <li>
-              <a><i class="far fa-save ikon" id="saveIkon" onclick="savePageContent()"></i></a>
-            </li>
-            <li>
-              <a><i class="fas fa-upload" id="upladIkon" onclick="loadPageContent()"></i></a>
-            </li>
-          </ul>
+
+  <div class="modal fade" id="CreateModal" tabindex="-1" aria-labelledby="CreateModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="CreateModalLabel">Card Create</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
         </div>
-      </nav>
-      <section id="site">
-        <div class="container-fluid">
-          <div class="row text-center row-flex" id="cardsSite">
-                
-              </div>
+        <div class="modal-body" id="CreateModalContent">
+          <form onsubmit="return newCard();" id="formCreate">
+            <div class="form-group">
+              <label for="TitleFormControlInput">Title</label>
+              <input type="text" class="form-control" id="CreateTitleFormControlInput">
             </div>
-      </section>
+            <div class="form-group">
+              <label for="DescFormControlTextarea">Description</label>
+              <textarea class="form-control" id="CreateDescFormControlTextarea" rows="3"></textarea>
+            </div>
+            <div class="form-group">
+              <label for="LinkFormControlInput">Link</label>
+              <input type="url" class="form-control" id="CreateLinkFormControlInput">
+            </div>
+          </form>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+          <button type="button" id="submitCreate" class="btn btn-success">Create</button>
+        </div>
+      </div>
     </div>
+  </div>
+
+  <!-- Modal -->
+  <div class="modal fade" id="errorModal" data-backdrop="static" data-keyboard="false" tabindex="-1"
+    aria-labelledby="errorModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="errorModalLabel">You are in trouble</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body" id="errorBody">
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="kontener">
+    <nav class="navbar navbar-expand-md bg-dark navbar-dark">
+      <!-- Brand -->
+      <a class="navbar-brand">Open Source Backyard</a>
+
+      <!-- Toggler/collapsibe Button -->
+      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#collapsibleNavbar">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <!-- Navbar links -->
+      <div class="collapse navbar-collapse" id="collapsibleNavbar">
+        <ul class="navbar-nav">
+          <li class="nav-item">
+            <a class="nav-link active" id="b1">Home <i class="far fa-folder"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="b2">Map <i class="far fa-folder"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="b3">Software <i class="far fa-folder"></i></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" id="b4">About <i class="far fa-folder"></i></a>
+          </li>
+
+          <li>
+            <a class="ikon" data-toggle="modal" data-target="#CreateModal"> <i class="far fa-plus-square"></i></a>
+
+            <a><i class="far fa-save ikon" id="saveIkon" onclick="savePageContent()"></i></a>
+
+            <a><i class="fas fa-cloud-upload-alt ikon" onclick="loadPageContent()"></i></a>
+
+            <a><i class="fas fa-file-download ikon" onclick="downloadJson()"></i></a>
+
+            <a><i class="fas fa-file-import ikon" onclick="document.getElementById('file-selector').click();"><input
+                  type="file" id="file-selector" accept=".json" style="display: none;"></i></a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+    <section id="site">
+      <div class="container-fluid">
+        <div class="row text-center row-flex" id="cardsSite">
+
+        </div>
+      </div>
+    </section>
+  </div>
 </body>
+
 </html>
