@@ -10,7 +10,7 @@ function downloadData(buttonId,dest){
     button.addEventListener('click',function(){
         fetch("https://raw.githubusercontent.com/bestiasia/FlyingPage/main/data/"+dest+".txt")
         .then(response => {return response.text();})
-        .then(data => {document.getElementById("site").innerHTML = data;
+        .then(data => {document.getElementById("cardsSite").innerHTML = data;
         $(".prawy-rog").click(function(){
             $(this).parents(".col-md-6.col-lg-4.col-sm-12").remove();
         });
