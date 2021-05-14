@@ -1,7 +1,8 @@
 document.addEventListener("DOMContentLoaded", function() {
         downloadData("b1","home");
-        downloadData("b2","map");
-        downloadData("b3","about");
+        downloadData("b2","Map");
+        downloadData("b4","about");
+        downloadDataJson("b3","software")
         fixButtons();
         $('#b1').click();
    })
@@ -12,10 +13,21 @@ function downloadData(buttonId,dest){
         .then(response => {return response.text();})
         .then(data => {document.getElementById("site").innerHTML = data;
         $(".prawy-rog").click(function(){
-            $(this).parents(".col-md-6.col-lg-4.col-sm-12").hide();
+            $(this).parents(".col-md-6.col-lg-4.col-sm-12").remove();
         });
       })
     },false);
+}
+function downloadDataJson(buttonId,dest){
+  let button = document.getElementById(buttonId);
+  button.addEventListener('click', function(){
+     fetch("https://raw.githubusercontent.com/bestiasia/FlyingPage/main/data/"+dest+".json")
+    .then(response => {return response.json();})
+    .then(data => {data.cards.forEach(element => {
+        insertCard(element);
+      });
+      insertCard(data);})
+  },false);
 }
 function fixButtons(){
     $(".prawy-rog").click(function(){
@@ -35,13 +47,19 @@ function fixButtons(){
     })
 }
 function savePageContent(){
+  $('#toaster').toast('show')
   localStorage.setItem("Cards",getPageContent())
 }
 function loadPageContent(){
-  let cardObj = JSON.parse(localStorage.getItem("Cards"));
-  cardObj.cards.forEach(element => {
-    insertCard(element);
-  });
+  if(localStorage.length == 0 || JSON.parse(localStorage.getItem('Cards')) == null){
+
+  }else{
+    let cardObj = JSON.parse(localStorage.getItem("Cards"));
+    document.getElementById("cardsSite").innerHTML = "";
+    cardObj.cards.forEach(element => {
+      insertCard(element);
+    });
+  }
 }
 function getPageContent(){
   jsonObj ={
@@ -55,19 +73,32 @@ function getPageContent(){
   return JSON.stringify(jsonObj);
 }
 
-function createCard(){
+function createCard(type){
     var cardContent = {};
-    var title = document.getElementById("CreateTitleFormControlInput").value;
-    var desc = document.getElementById("CreateDescFormControlTextarea").value;
-    var link = document.getElementById("CreateLinkFormControlInput").value;
+    var title = document.getElementById(type+"TitleFormControlInput").value;
+    var desc = document.getElementById(type+"DescFormControlTextarea").value;
+    var link = document.getElementById(type+"LinkFormControlInput").value;
+    var isok = true;
+    var alert_message = "";
 
-    //walidacja do dodania!!!
-
-    cardContent.title = title;
-    cardContent.desc = desc;
-    cardContent.link = link;
-
-    return insertCard(cardContent);
+    if(title == ""){ isok = false; alert_message += '<p>Title field cannot be empty!</p>';}
+    else {cardContent.title = title;}
+    if(desc == ""){ isok = false; alert_message += '<p>Description field cannot be empty!</p>';}
+    else {cardContent.desc = desc;}
+    if(link == ""){isok = false; alert_message += '<p>Link field cannot be empty!</p>';}
+    else{
+      if(!(/[-a-zA-Z0-9@:%._\+~#=]{1,256}\.[a-zA-Z0-9()]{1,6}\b([-a-zA-Z0-9()@:%_\+.~#?&//=]*)/.test(link))){
+        isok = false;
+        alert_message += '<p>Link must be valid URL!</p>';
+      }else{cardContent.link = link; }
+    }
+    if(isok){
+      return cardContent;
+    }else{
+      $('#errorModal').modal('show');
+      document.getElementById('errorBody').innerHTML = alert_message;
+      return false;
+    }
 }
 
 var id=0;
@@ -99,18 +130,22 @@ function insertCard(cardContent){
 var button;
 function editCard(){
     var cardContent = {};
-    var title = document.getElementById("TitleFormControlInput").value;
-    var desc = document.getElementById("DescFormControlTextarea").value;
-    var link = document.getElementById("LinkFormControlInput").value;
-
-    //walidacja do dodania!!!
-
-    cardContent.title = title;
-    cardContent.desc = desc;
-    cardContent.link = link;
-
+    if(!createCard("")){
+      return false;
+    }else{
+    cardContent = createCard("");
+    }
     return changeCard(cardContent);
-}
+  }
+function newCard(){
+  var cardContent = {};
+  if(!createCard("Create")){
+      return false;
+  }else{
+    cardContent = createCard("Create");
+  }
+  return insertCard(cardContent);
+  }
 function changeCard(cardContent){
     var html =     '<div class="card-body kontent">'+
                       '<h5 class="card-title bg-primary rounded">'+cardContent.title+'</h5>'+
@@ -132,4 +167,27 @@ function changeCard(cardContent){
 function ButtonClicked(button_id){
     button = button_id;
     return button_id;
+}
+
+function downloadJson(){
+  data = getPageContent();
+  filename = Date.now() + "cards.json";
+  var file = new Blob([data],{
+    type: 'application/json',
+    name: filename
+  });
+  if (window.navigator.msSaveOrOpenBlob) // IE10+
+      window.navigator.msSaveOrOpenBlob(file, filename);
+  else { // Others
+      var a = document.createElement("a"),
+          url = URL.createObjectURL(file);
+      a.href = url;
+      a.download = filename;
+      document.body.appendChild(a);
+      a.click();
+      setTimeout(function () {
+          document.body.removeChild(a);
+          window.URL.revokeObjectURL(url);
+      }, 0);
+  }
 }
