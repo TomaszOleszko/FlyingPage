@@ -118,6 +118,8 @@
     </div>
   </div>
 
+  
+  
   <div class="kontener">
     <nav class="navbar navbar-expand-md bg-dark navbar-dark">
       <!-- Brand -->
@@ -143,7 +145,6 @@
           <li class="nav-item">
             <a class="nav-link" id="b4">About <i class="far fa-folder"></i></a>
           </li>
-
           <li>
             <a class="ikon" data-toggle="modal" data-target="#CreateModal"> <i class="far fa-plus-square"></i></a>
 
@@ -159,6 +160,16 @@
         </ul>
       </div>
     </nav>
+
+    <div aria-live="polite" aria-atomic="true" style="position: relative; min-height: 200px;">
+      <div class="toast" id="toaster" data-delay="5000" style="position: absolute; top: 1em; right: 1em;">
+        <div class="toast-header">
+          <i class="far fa-save ikon" id="img_toast"></i>
+          Cards saved in Local Storage
+        </div>
+      </div>
+    </div>
+
     <section id="site">
       <div class="container-fluid">
         <div class="row text-center row-flex" id="cardsSite">
@@ -168,5 +179,4 @@
     </section>
   </div>
 </body>
-
 </html>
