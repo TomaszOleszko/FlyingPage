@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
         downloadData("b1","home");
         downloadData("b4","about");
-        downloadDataJson("b3","software")
+        downloadDataJson("b3","softwares")
         fixButtons();
         $('#b1').click();
    })
