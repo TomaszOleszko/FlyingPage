@@ -5,9 +5,14 @@ document.addEventListener("DOMContentLoaded", function() {
         fixButtons();
         $('#b1').click();
    })
+var start = '<div class="container-fluid">'+
+   '<div class="row text-center row-flex" id="cardsSite">'+
+  '</div>'+
+ '</div>';
 function downloadData(buttonId,dest){
     var button = document.getElementById(buttonId);
     button.addEventListener('click',function(){
+        document.getElementById("site").innerHTML = start;
         fetch("https://raw.githubusercontent.com/bestiasia/FlyingPage/main/data/"+dest+".txt")
         .then(response => {return response.text();})
         .then(data => {document.getElementById("cardsSite").innerHTML = data;
@@ -20,6 +25,7 @@ function downloadData(buttonId,dest){
 function downloadDataJson(buttonId,dest){
   let button = document.getElementById(buttonId);
   button.addEventListener('click', function(){
+     document.getElementById("site").innerHTML = start;
      fetch("https://raw.githubusercontent.com/bestiasia/FlyingPage/main/data/"+dest+".json")
     .then(response => {return response.json();})
     .then(data => {data.cards.forEach(element => {
@@ -49,7 +55,6 @@ function fixButtons(){
       function () {
           var fr = new FileReader();
           fr.onload = function () {
-              //console.log(JSON.parse(this.result));
               let cardObj = JSON.parse(this.result);
               document.getElementById("cardsSite").innerHTML = "";
               cardObj.cards.forEach(element => {
@@ -58,17 +63,18 @@ function fixButtons(){
           };
           fr.readAsText(this.files[0]);
       }
-  );    
+  );
 }
 function savePageContent(){
-  localStorage.setItem("Cards",getPageContent());
+  localStorage.setItem("Cards",getPageContent())
 }
 function loadPageContent(){
   if(localStorage.length == 0 || JSON.parse(localStorage.getItem('Cards')) == null){
-
+      alert("LocalStorageEmpty");
+      //naprawic
   }else{
     let cardObj = JSON.parse(localStorage.getItem("Cards"));
-    document.getElementById("cardsSite").innerHTML = "";
+    document.getElementById("site").innerHTML = start;
     cardObj.cards.forEach(element => {
       insertCard(element);
     });
@@ -81,7 +87,9 @@ function getPageContent(){
   $(".kontent").each(function(){
     jsonObj.cards.push({"title": this.querySelectorAll('.card-title')[0].innerText, 
     "desc": this.querySelectorAll('.card-text')[0].innerText,
-    "link": $(this).children('.ref').attr('href')});
+    "link": $(this).children('.ref').attr('href'),
+    "ico":  $(this).children().eq(2).children(':first').attr("class")
+    });
   })
   return JSON.stringify(jsonObj);
 }
@@ -91,6 +99,9 @@ function createCard(type){
     var title = document.getElementById(type+"TitleFormControlInput").value;
     var desc = document.getElementById(type+"DescFormControlTextarea").value;
     var link = document.getElementById(type+"LinkFormControlInput").value;
+    var ico = $('input[name="'+type+'Icon"]:checked');
+    
+
     var isok = true;
     var alert_message = "";
 
@@ -104,6 +115,13 @@ function createCard(type){
         isok = false;
         alert_message += '<p>Link must be valid URL!</p>';
       }else{cardContent.link = link; }
+    }
+    if(ico != null) {  
+         cardContent.ico =  $('input[name="'+type+'Icon"]:checked').next().children(':first').attr("class"); 
+    }
+     else {  
+         isok = false;
+         alert_message += '<p>Select one of icons!</p>';
     }
     if(isok){
       return cardContent;
@@ -123,7 +141,7 @@ function insertCard(cardContent){
               '<div class="card-body kontent">'+
                 '<h5 class="card-title bg-primary rounded">'+cardContent.title+'</h5>'+
                 '<p class="card-text">'+cardContent.desc+'</p>'+
-                '<a href="'+cardContent.link+'" class="btn btn-primary ref"><i class="fas fa-archive"></i></a>'+
+                '<a href="'+cardContent.link+'" class="btn btn-primary ref"><i class="'+cardContent.ico+'"></i></a>'+
             '</div>'+
               '<div class="container-fluid">'+
                 '<div class="row text-center">'+
@@ -133,7 +151,6 @@ function insertCard(cardContent){
               '</div>'+
             '</div>'+
           '</div>';
-
     document.getElementById("cardsSite").innerHTML += html;
     $(".prawy-rog").click(function(){
         $(this).parents(".col-md-6.col-lg-4.col-sm-12").remove();
@@ -163,7 +180,7 @@ function changeCard(cardContent){
     var html =     '<div class="card-body kontent">'+
                       '<h5 class="card-title bg-primary rounded">'+cardContent.title+'</h5>'+
                       '<p class="card-text">'+cardContent.desc+'</p>'+
-                      '<a href="'+cardContent.link+'" class="btn btn-primary ref"><i class="fas fa-archive"></i></a>'+
+                      '<a href="'+cardContent.link+'" class="btn btn-primary ref"><i class="'+cardContent.ico+'"></i></a>'+
                     '</div>'+
                     '<div class="container-fluid">'+
                       '<div class="row text-center">'+
@@ -181,7 +198,6 @@ function ButtonClicked(button_id){
     button = button_id;
     return button_id;
 }
-
 function downloadJson(){
   data = getPageContent();
   filename = Date.now() + "cards.json";
@@ -189,6 +205,7 @@ function downloadJson(){
     type: 'application/json',
     name: filename
   });
+  //zapisywanie
   if (window.navigator.msSaveOrOpenBlob) // IE10+
       window.navigator.msSaveOrOpenBlob(file, filename);
   else { // Others
