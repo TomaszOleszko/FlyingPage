@@ -1,34 +1,40 @@
 {
-  "cards": [
-      {
-          "title": "Linux",
-          "desc": "The open source operating system",
-          "link": "https://elixir.bootlin.com/linux/latest/source"
-      },
-      {
-          "title": "Gimp",
-          "desc": "The open-source raster graphics editor",
-          "link": "https://www.gimp.org/source/"
-      },
-      {
-          "title": "Audacity",
-          "desc": "A powerful audio editor, ideal for music and podcasts",
-          "link": "https://www.audacityteam.org/"
-      },
-      {
-          "title": "Shotcut",
-          "desc": "A slick open source program for advanced video editing",
-          "link": "https://shotcut.org/"
-      },
-      {
-          "title": "VLC Media Player",
-          "desc": "An open source, cross-platform media player software and streaming media server",
-          "link": "https://www.videolan.org/vlc/"
-      },
-      {
-          "title": "LibreOffice",
-          "desc": "A open source alternative to Microsoft Office",
-          "link": "https://www.libreoffice.org/"
-      }
-  ]
+    "cards": [
+        {
+            "title": "Linux",
+            "desc": "The open source operating system",
+            "link": "https://elixir.bootlin.com/linux/latest/source",
+            "ico": "fas fa-archive radyjko"
+        },
+        {
+            "title": "Gimp",
+            "desc": "The open-source raster graphics editor",
+            "link": "https://www.gimp.org/source/",
+            "ico": "fas fa-code radyjko"
+        },
+        {
+            "title": "Audacity",
+            "desc": "A powerful audio editor, ideal for music and podcasts",
+            "link": "https://www.audacityteam.org/",
+            "ico": "fas fa-archive radyjko"
+        },
+        {
+            "title": "Shotcut",
+            "desc": "A slick open source program for advanced video editing",
+            "link": "https://shotcut.org/",
+            "ico": "far fa-file-alt radyjko"
+        },
+        {
+            "title": "VLC Media Player",
+            "desc": "An open source, cross-platform media player software and streaming media server",
+            "link": "https://www.videolan.org/vlc/",
+            "ico": "fas fa-archive radyjko"
+        },
+        {
+            "title": "LibreOffice",
+            "desc": "A open source alternative to Microsoft Office",
+            "link": "https://www.libreoffice.org/",
+            "ico": "far fa-file-alt radyjko"
+        }
+    ]
 }
