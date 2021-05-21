@@ -85,7 +85,6 @@ function getPageContent(){
   jsonObj ={
     "cards":[]
   };
-  if($('#b3').hasClass('active')){
     $(".kontent").each(function(){
       jsonObj.cards.push({"title": this.querySelectorAll('.card-title')[0].innerText, 
       "desc": this.querySelectorAll('.card-text')[0].innerText,
@@ -94,9 +93,7 @@ function getPageContent(){
       });
     })
     return JSON.stringify(jsonObj);
-  }else{
-    return false;
-  }
+
   
 }
 
@@ -206,7 +203,6 @@ function ButtonClicked(button_id){
 }
 function downloadJson(){
   data = getPageContent();
-  if(data != false){
     filename = Date.now() + "cards.json";
     var file = new Blob([data],{
       type: 'application/json',
@@ -227,8 +223,6 @@ function downloadJson(){
             window.URL.revokeObjectURL(url);
         }, 0);
     }
-  }else{
-    return false;
-  }
+  
   
 }
