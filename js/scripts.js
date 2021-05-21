@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
         downloadData("b1","home");
         downloadData("b4","about");
-        downloadDataJson("b3","softwares")
+        downloadDataJson("b3","software")
         fixButtons();
         $('#b1').click();
    })
@@ -10,28 +10,29 @@ var start = '<div class="container-fluid">'+
   '</div>'+
  '</div>';
 function downloadData(buttonId,dest){
-    var button = document.getElementById(buttonId);
+    let button = document.getElementById(buttonId);
     button.addEventListener('click',function(){
-        document.getElementById("site").innerHTML = start;
-        fetch("https://raw.githubusercontent.com/bestiasia/FlyingPage/main/data/"+dest+".txt")
+      document.getElementById("site").innerHTML = start;
+        fetch("http://localhost/projekt/data/"+dest+".txt")
         .then(response => {return response.text();})
         .then(data => {document.getElementById("site").innerHTML = data;
         $(".prawy-rog").click(function(){
             $(this).parents(".col-md-6.col-lg-4.col-sm-12").remove();
         });
-      })
+     })
     },false);
 }
 function downloadDataJson(buttonId,dest){
   let button = document.getElementById(buttonId);
   button.addEventListener('click', function(){
-     document.getElementById("site").innerHTML = start;
-     fetch("https://raw.githubusercontent.com/bestiasia/FlyingPage/main/data/"+dest+".json")
+    document.getElementById("site").innerHTML = start;
+    fetch("http://localhost/projekt/data/"+dest+".json")
     .then(response => {return response.json();})
     .then(data => {data.cards.forEach(element => {
         insertCard(element);
-      });
-     })
+      }
+      );
+    })
   },false);
 }
 function fixButtons(){
@@ -71,8 +72,8 @@ function savePageContent(){
 function loadPageContent(){
   if(localStorage.length == 0 || JSON.parse(localStorage.getItem('Cards')) == null){
       alert("LocalStorageEmpty");
-      //naprawic
   }else{
+    $('#b3').click();
     let cardObj = JSON.parse(localStorage.getItem("Cards"));
     document.getElementById("site").innerHTML = start;
     cardObj.cards.forEach(element => {
@@ -84,14 +85,19 @@ function getPageContent(){
   jsonObj ={
     "cards":[]
   };
-  $(".kontent").each(function(){
-    jsonObj.cards.push({"title": this.querySelectorAll('.card-title')[0].innerText, 
-    "desc": this.querySelectorAll('.card-text')[0].innerText,
-    "link": $(this).children('.ref').attr('href'),
-    "ico":  $(this).children().eq(2).children(':first').attr("class")
-    });
-  })
-  return JSON.stringify(jsonObj);
+  if($('#b3').hasClass('active')){
+    $(".kontent").each(function(){
+      jsonObj.cards.push({"title": this.querySelectorAll('.card-title')[0].innerText, 
+      "desc": this.querySelectorAll('.card-text')[0].innerText,
+      "link": $(this).children('.ref').attr('href'),
+      "ico":  $(this).children().eq(2).children(':first').attr("class")
+      });
+    })
+    return JSON.stringify(jsonObj);
+  }else{
+    return false;
+  }
+  
 }
 
 function createCard(type){
@@ -200,24 +206,29 @@ function ButtonClicked(button_id){
 }
 function downloadJson(){
   data = getPageContent();
-  filename = Date.now() + "cards.json";
-  var file = new Blob([data],{
-    type: 'application/json',
-    name: filename
-  });
-  //zapisywanie
-  if (window.navigator.msSaveOrOpenBlob) // IE10+
-      window.navigator.msSaveOrOpenBlob(file, filename);
-  else { // Others
-      var a = document.createElement("a"),
-          url = URL.createObjectURL(file);
-      a.href = url;
-      a.download = filename;
-      document.body.appendChild(a);
-      a.click();
-      setTimeout(function () {
-          document.body.removeChild(a);
-          window.URL.revokeObjectURL(url);
-      }, 0);
+  if(data != false){
+    filename = Date.now() + "cards.json";
+    var file = new Blob([data],{
+      type: 'application/json',
+      name: filename
+    });
+    //zapisywanie
+    if (window.navigator.msSaveOrOpenBlob) // IE10+
+        window.navigator.msSaveOrOpenBlob(file, filename);
+    else { // Others
+        var a = document.createElement("a"),
+            url = URL.createObjectURL(file);
+        a.href = url;
+        a.download = filename;
+        document.body.appendChild(a);
+        a.click();
+        setTimeout(function () {
+            document.body.removeChild(a);
+            window.URL.revokeObjectURL(url);
+        }, 0);
+    }
+  }else{
+    return false;
   }
+  
 }
