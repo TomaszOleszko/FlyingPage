@@ -203,6 +203,7 @@ function ButtonClicked(button_id){
 }
 function downloadJson(){
   data = getPageContent();
+     if(data.cards.length != 0){
     filename = Date.now() + "cards.json";
     var file = new Blob([data],{
       type: 'application/json',
@@ -223,6 +224,8 @@ function downloadJson(){
             window.URL.revokeObjectURL(url);
         }, 0);
     }
-  
+  }else{
+    return false;
+  }
   
 }
