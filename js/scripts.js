@@ -94,7 +94,6 @@ function getPageContent(){
     })
     return JSON.stringify(jsonObj);
 
-  
 }
 
 function createCard(type){
