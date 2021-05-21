@@ -1,7 +1,7 @@
 document.addEventListener("DOMContentLoaded", function() {
         downloadData("b1","home");
         downloadData("b4","about");
-        downloadDataJson("b3","software")
+        downloadDataJson("b3","softwares")
         fixButtons();
         $('#b1').click();
    })
@@ -12,8 +12,8 @@ var start = '<div class="container-fluid">'+
 function downloadData(buttonId,dest){
     let button = document.getElementById(buttonId);
     button.addEventListener('click',function(){
-      document.getElementById("site").innerHTML = start;
-        fetch("http://localhost/projekt/data/"+dest+".txt")
+  document.getElementById("site").innerHTML = start;
+        fetch("https://raw.githubusercontent.com/bestiasia/FlyingPage/main/data/"+dest+".txt")
         .then(response => {return response.text();})
         .then(data => {document.getElementById("site").innerHTML = data;
         $(".prawy-rog").click(function(){
@@ -25,8 +25,8 @@ function downloadData(buttonId,dest){
 function downloadDataJson(buttonId,dest){
   let button = document.getElementById(buttonId);
   button.addEventListener('click', function(){
-    document.getElementById("site").innerHTML = start;
-    fetch("http://localhost/projekt/data/"+dest+".json")
+     document.getElementById("site").innerHTML = start;
+     fetch("https://raw.githubusercontent.com/bestiasia/FlyingPage/main/data/"+dest+".json")
     .then(response => {return response.json();})
     .then(data => {data.cards.forEach(element => {
         insertCard(element);
